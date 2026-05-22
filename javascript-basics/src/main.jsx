@@ -1,62 +1,60 @@
-// Arreglos
-// Un arreglo es un colección de elementos ordenados, delimitados por []
+// Funciones
 
-// Definir un arreglo con super clase Array
-const arreglo1 = new Array();
-console.log(arreglo1); // []
+// Definción: Una función es un bloque de código reutilizable que realiza una tarea específica. De manera tradicional, se puede definir una función utilizando la palabra clave `function` seguida del nombre de la función y paréntesis (parámetros), y llaves (cuerpo de la función).
 
-// Definir un arreglo con un tamaño específico
-const arreglo2 = new Array(5);
-console.log(arreglo2); // [empty × 5]
+// Ejemplo de función tradicional
+function saludar1(nombre) {
+  return `Hola, ${nombre}!`;
+}
 
-// Definir un arreglo usando su delimitador []
-const arreglo3 = [];
-console.log(arreglo3); // []
+// Llamada a la función
+console.log(saludar1("Mundo")); // Output: Hola, Mundo!
 
-// Definir un arreglo con elementos iniciales (por defecto)
-const arreglo4 = [1, 2, 3, 4, 5];
-console.log(arreglo4); // [1, 2, 3, 4, 5]
+// Error de mutación de una función
+saludar1 = "La función a sido mutada"; // Esto no es recomendable, ya que puede causar errores en el código
+console.log(saludar1); // Output: La función a sido mutada
 
-// Definir un arreglo con elementos de diferentes tipos
-const arreglo5 = [1, 'dos', true, null, undefined, { nombre: 'Juan' }, [1, 2, 3]];
-console.log(arreglo5); // [1, 'dos', true, null, undefined, { nombre: 'Juan' }, [1, 2, 3]]
+// Defnición de una función como un objeto constante
+const saludar2 = function (nombre) {
+  return `Hola, ${nombre}!`;
+}
+// Llamada a la función
+console.log(saludar2("Mundo")); // Output: Hola, Mundo!
 
-// Acceder a elementos de un arreglo
-console.log(arreglo4[0]); // 1
-console.log(arreglo4[2]); // 3
-console.log(arreglo5[5]); // { nombre: 'Juan' }
-console.log(arreglo5[6]); // [1, 2, 3]
-console.log(arreglo5[6][0]);
+// Intento de mutación de la función constante
+// saludar2 = "La función a sido mutada"; // Esto generará un error, ya que no se puede reasignar una constante
+// console.log(saludar2); // Output: Uncaught TypeError: Assignment to constant variable.
 
-// Identificando el tamaño de un arreglo usando la propiedad length
-console.log(arreglo5.length);
+// Funciones Flecha
+const saludar3 = (nombre) => {
+  return `Hola, ${nombre}!`;
+};
 
-// --- Métodos de inserción de elementos en un arreglo ---
-// push() - Agrega un elemento al final del arreglo
-arreglo4.push(6);
-console.log(arreglo4); // [1, 2, 3, 4, 5, 6]
+// Llamada a la función flecha
+console.log(saludar3("Mundo")); // Output: Hola, Mundo!
 
-// unshift() - Agrega un elemento al inicio del arreglo
-arreglo4.unshift(0);
-console.log(arreglo4); // [0, 1, 2, 3, 4, 5, 6]
+console.log(saludar3); // Output: Hola, Mundo!
 
-// splice() - Agrega elementos en una posición específica del arreglo
-arreglo4.splice(3, 0, 'tres');
-console.log(arreglo4); // [0, 1, 2, 'tres', 3, 4, 5, 6]
+// Función flecha con una sola sentencia
+const saludar4 = (nombre) => `Hola, ${nombre}!`;
+// Llamada a la función flecha con una sola sentencia
+console.log(saludar4("Mundo")); // Output: Hola, Mundo!
 
-// --- Métodos de eliminación de elementos en un arreglo ---
-// pop() - Elimina el último elemento del arreglo
-arreglo4.pop();
-console.log(arreglo4); // [0, 1, 2, 'tres', 3, 4, 5]
+// Funciones que retornan objetos
+const saludar5 = (nombre) => ({ mensaje: `Hola, ${nombre}!` });
+// Llamada a la función que retorna un objeto
+console.log(saludar5("Mundo")); // Output: { mensaje: 'Hola, Mundo!' }
 
-// shift() - Elimina el primer elemento del arreglo
-arreglo4.shift();
-console.log(arreglo4); // [1, 2, 'tres', 3, 4, 5]
+// Ejercicio: Transforma la siguiente función a flecha y realiza una prueba
+function getUsuario(id, name) {
+    return {
+        ide: id,
+        nombre: name
+    }
+}
 
-// splice() - Elimina elementos en una posición específica del arreglo
-arreglo4.splice(2, 1);
-console.log(arreglo4); // [1, 2, 3, 4, 5]
+const getUser2 = (id,name) => ({id: id, name: name});
+console.log(getUser2(1, 'Juan'));
 
-// Modificar elementos de un arreglo
-arreglo4[1] = 'dos';
-console.log(arreglo4); // [1, 'dos', 3, 4, 5]
+const getUser3 = (id,name) => ({id, name});
+console.log(getUser3(2, 'Maria'));
